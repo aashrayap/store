@@ -23,12 +23,5 @@ class DashboardController < ApplicationController
     @top_three_states= User.find_by_sql ["SELECT states.name, COUNT(states.name) FROM users JOIN addresses ON (users.id=user_id) JOIN states ON (state_id = states.id) GROUP BY states.name ORDER BY COUNT(states.name) desc LIMIT 3"]
     @top_three_cities= User.find_by_sql ["SELECT cities.name, COUNT(cities.name) FROM users JOIN addresses ON (users.id=user_id) JOIN cities ON (city_id=cities.id) GROUP BY cities.name ORDER BY COUNT(cities.name) desc LIMIT 3"]
 
-    @highest_single_order=  User.find_by_sql ["SELECT users.first_name, orders.id, (order_contents.quantity*products.price) AS total 
-#   FROM users JOIN orders ON (users.id=user_id) 
-#   JOIN order_contents ON (orders.id=order_id) 
-#   JOIN products ON (product_id=products.id)
-#   GROUP BY total, users.first_name, orders.id
-#   ORDER BY total desc"]
-    @most_orders_placed= User.find_by_sql [" SELECT users.first_name,users.last_name,"]
   end
 end
