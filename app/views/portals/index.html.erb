@@ -1,0 +1,60 @@
+<div class="container center">
+	<div class="col-md-12 centered">
+  <h1> Store Admin Portal </h1>
+  	</div>
+</div>
+
+<div class="body-container">
+	<div class="col-md-2 col-md-offset-1 well ">
+		<p>Navigation Options</p>
+		Users<br>
+		Adresses<br>
+		Orders<br>
+		Products<br>
+		Categories<br>
+		<br>
+		<%=link_to "Dashboard",dashboard_index_path %>
+	</div>
+
+	<div class="col-md-8 well">
+		<div class="col-md-6 col-md-offset-4">
+		<h2>Store Users</h2>
+		</div>
+
+		<div class="col-md-7 col-md-offset-2">
+		<button type="button" class="btn btn-primary btn-lg btn-block centered">Create New User</button>
+		</div>
+ 		
+		<div class="col-md-9 col-md-offset-1 well">
+		<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>City</th>
+    <th>Order Date</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @user.each do |user|%>
+  <tr>
+    <td><%=user.id%></td>
+    <td><%=user.first_name%> <%=user.last_name%></td>
+    <td><%=user.name%></td>
+    <td><%=user.checkout_date%></td>
+    <td><%=link_to"Show"%></td>
+    <td><%=link_to"Edit"%></td>
+    <td><%=link_to"Delete"%></td>
+  </tr>
+
+  <%end%>
+  
+</table>
+
+
+		</div>
+
+
+
+	</div>
+</div>
