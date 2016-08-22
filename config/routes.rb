@@ -53,7 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root 'portals#index'
+  root 'users#index'
   resources :dashboard, only: [:index]
-  resources :portals,only: [:index]
+  resources :users
+  resources :categories
 end
