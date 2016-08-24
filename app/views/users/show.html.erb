@@ -1,11 +1,26 @@
-Hello welcome to show <br>
-<%=link_to"Users Home",users_path%>
-<br>
-First Name:
-<%=@user.first_name%><br>
-Last Name:
-<%=@user.last_name%><br>
-Email:
-<%=@user.email%>
+<div class="container center">
+	<h2> User<%=@user.id%> : <%=@user.first_name%> <%=@user.last_name%></h2>
+	<div class="col-md-10">
+		<div class="demographic-container row">
+			<h5>Demographic Information</h5>
+			<p>First Name: <%=@user.first_name%><br>
+				Last Name: <%=@user.last_name%><br>
+				Email: <%=@user.email%><br>
+				Default Billing Address : <%=@user.addresses.first.street_address%>, <%=@user.addresses.first.city.name%>, <%=@user.addresses.first.state.name%><br>
+				Default Shipping Address : <%=@user.addresses.last.street_address%>, <%=@user.addresses.first.city.name%>, <%=@user.addresses.first.state.name%>
+			</p>
+			<td><%=link_to"Edit User",edit_user_path(@user)%></td><br>
+			<td><%=link_to "Delete User", user_path(@user), method: :delete %></td>
+		</div>
+		     <br>
+		<div class="credit-container row">
+			<h5>Credit Card Info</h5>
+			<p><p>First Name: <%=@user.first_name%><br>
+				Last Name: <%=@user.last_name%><br>
+				Card Number: <%=@user.credit_cards.first.card_number%><br>
+				Expiration Date: <%=@user.credit_cards.first.exp_year%>-<%=@user.credit_cards.first.exp_month%>
 
 
+		</div>
+	</div>
+</div>

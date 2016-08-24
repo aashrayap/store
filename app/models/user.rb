@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  validates :email, :presence => true,:length =>{ :maximum => 10}
+  has_many :addresses
+  has_many :credit_cards
+  has_many :orders
 end
